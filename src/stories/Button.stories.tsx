@@ -24,6 +24,11 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
+export const Default = Template.bind({});
+Default.args = {
+  children: 'submit'
+};
+
 export const Filled = Template.bind({});
 Filled.args = {
   variant: 'filled',
