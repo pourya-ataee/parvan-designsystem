@@ -1,5 +1,5 @@
 {
-  "name": "parvan-component",
+  "name": "parvan-components",
   "version": "0.0.1",
   "files": [
     "dist",
@@ -34,8 +34,8 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "prepublish": "rm -rf dist && mkdir dist && babel ./src/components -d dist --copy-files",
-    "win:prepublish": "(if exist dist rmdir /s /q dist) && mkdir dist && babel ./src/components -d dist --copy-files",
+    "prepublish": "rm -rf dist && mkdir dist && babel src --out-dir dist --copy-files",
+    "win:prepublish": "(if exist dist rmdir /s /q dist) && mkdir dist && babel src --out-dir dist --copy-files",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
