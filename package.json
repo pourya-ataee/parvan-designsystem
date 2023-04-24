@@ -77,16 +77,5 @@
     "prop-types": "^15.8.1",
     "semantic-release": "^21.0.1",
     "webpack": "^5.77.0"
-  },
-  "plugins": [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
-    "@semantic-release/changelog",
-    "@semantic-release/github",
-    "@semantic-release/npm",
-    "@semantic-release/git"
-  ],
-  "branches": [
-    "main"
-  ]
+  }
 }
