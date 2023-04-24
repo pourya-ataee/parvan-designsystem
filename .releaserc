@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/github", {
+      "githubToken": "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"
+    }],
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ],
+  "branches": ["main"]
+}
