@@ -1,13 +1,19 @@
 {
   "name": "parvan-component",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "private": true,
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "main": "dist/index.js",
   "engines": {
     "node": ">=14.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -27,10 +33,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "prepublish": "rm -rf dist && mkdir dist && babel ./src/components -d dist --copy-files",
+    "win:prepublish": "(if exist dist rmdir /s /q dist) && mkdir dist && babel ./src/components -d dist --copy-files",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -63,12 +67,8 @@
     ]
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.7",
-    "@semantic-release/npm": "^10.0.3",
-    "@semantic-release/release-notes-generator": "^10.0.3",
+    "@babel/cli": "^7.21.0",
+    "@babel/preset-react": "^7.18.6",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -81,7 +81,6 @@
     "@storybook/testing-library": "^0.1.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "prop-types": "^15.8.1",
-    "semantic-release": "^21.0.1",
     "webpack": "^5.77.0"
   }
 }
