@@ -1,7 +1,6 @@
 {
   "name": "parvan-component",
   "version": "0.0.1",
-  "private": true,
   "files": [
     "dist",
     "README.md"
