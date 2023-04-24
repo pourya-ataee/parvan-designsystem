@@ -1,7 +1,6 @@
 {
   "name": "parvan-component",
   "version": "0.1.0",
-  "main": "dist/index.js",
   "private": true,
   "publishConfig": {
     "access": "restricted"
@@ -28,7 +27,6 @@
     "react-dom": "^18.2.0"
   },
   "scripts": {
-    "prepublish": "rm -rf ./dist && npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
