@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import clsx from "clsx";
-import '../style.css';
+import '../index.css';
 
 export interface ButtonProps {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
