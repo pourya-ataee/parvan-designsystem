@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: npm install 
       - name: Build app
-        run: npm run prepublish 
+        run: npm run build 
       - name: Publish to npm
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
