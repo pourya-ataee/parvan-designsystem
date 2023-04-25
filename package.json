@@ -14,8 +14,7 @@
     "dist",
     "README.md"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
   "author": "pourya ataee",
   "engines": {
     "node": ">=14.0.0"
