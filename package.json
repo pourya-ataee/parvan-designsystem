@@ -1,6 +1,6 @@
 {
   "name": "parvan-designsystem",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Parvan Pajooh frontend components",
   "private": false,
   "keywords": [
@@ -14,7 +14,7 @@
     "dist",
     "README.md"
   ],
-  "main": "dist/index.js",
+  "main": "dist/lib/index.js",
   "author": "pourya ataee",
   "engines": {
     "node": ">=14.0.0"
