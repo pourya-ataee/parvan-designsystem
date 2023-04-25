@@ -26,14 +26,13 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'submit'
+  children: 'submit',
+  disabled: false,
 };
 
 export const Filled = Template.bind({});
 Filled.args = {
   variant: 'filled',
-  rounded: true,
-  isFullyRounded: true,
   children: 'submit',
   disabled: false,
 };
@@ -41,8 +40,6 @@ Filled.args = {
 export const Outlined = Template.bind({});
 Outlined.args = {
   variant: 'outlined',
-  rounded: true,
-  isFullyRounded: true,
   children: 'submit',
   disabled: false,
 };
@@ -50,8 +47,6 @@ Outlined.args = {
 export const Text = Template.bind({});
 Text.args = {
   variant: 'text',
-  rounded: true,
-  isFullyRounded: true,
   children: 'submit',
   disabled: false,
 };
@@ -59,8 +54,6 @@ Text.args = {
 export const Elevated = Template.bind({});
 Elevated.args = {
   variant: 'elevated',
-  rounded: true,
-  isFullyRounded: true,
   children: 'submit',
   disabled: false,
 };
@@ -68,11 +61,6 @@ Elevated.args = {
 export const Tonal = Template.bind({});
 Tonal.args = {
   variant: 'tonal',
-  rounded: true,
-  isFullyRounded: true,
   children: 'submit',
   disabled: false,
 };
-
-// export const Default = () => <Button />;
-// export const Primary = () => <Button filled rounded onClick={action('clicked')}>Primary Button</Button>;

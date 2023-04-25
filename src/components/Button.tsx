@@ -1,32 +1,37 @@
 import styled from "styled-components";
 import clsx from "clsx";
+import '../style.css';
 
 export interface ButtonProps {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
-    rounded?: boolean
-    isFullyRounded?: boolean
+    textColor?: string
+    background?: string
+    rounded?: 'min' | 'mid' | 'max'
 }
 
 export const Button = styled.button<ButtonProps>`
     background: ${props => clsx(
-        { '#6750A4': props.variant === 'filled' || !props.variant },
-        { '#FFFFFF': props.variant === 'outlined' || props.variant === 'text' },
-        { '#FFFBFE': props.variant === 'elevated' },
-        { '#E8DEF8': props.variant === 'tonal' }
+        { 'var(--primary-color)': (props.variant === 'filled' || !props.variant) && !props.background },
+        { '#FFFFFF': (props.variant === 'outlined' || props.variant === 'text') && !props.background },
+        { 'var(--surface-color)': (props.variant === 'elevated') && !props.background },
+        { 'var(--secondary-container-color)': (props.variant === 'tonal') && !props.background },
+        [ !!props.background && props.background ]
     )};
     color: ${props => clsx(
-        { '#FFFFFF': props.variant === 'filled' || !props.variant },
-        { '#6750A4': props.variant === 'outlined' || props.variant === 'text' || props.variant === 'elevated' },
-        { '#1D192B': props.variant === 'tonal' }
+        { 'var(--on-primary-color)': (props.variant === 'filled' || !props.variant) && !props.textColor },
+        { 'var(--primary-color)': (props.variant === 'outlined' || props.variant === 'text' || props.variant === 'elevated') && !props.textColor },
+        { 'var(--on-secondary-container-color)': (props.variant === 'tonal') && !props.textColor },
+        [ !!props.textColor && props.textColor ]
     )};
     box-shadow: ${props => clsx(props.variant === 'elevated' ? '0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)' : 'none')};
-    border: ${props => clsx(props.variant === 'outlined' ? '1px solid #79747E' : '0')};
-    border-radius: ${props => clsx(props.rounded ? props.isFullyRounded ? '100px' : '8px' : '4px')};
+    border: ${props => clsx(props.variant === 'outlined' ? '1px solid var(--outline-color)' : '0')};
+    border-radius: ${props => clsx(props.rounded === 'mid' ? '8px' : props.rounded === 'max' ? '100px' : '4px')};
     padding: ${props => clsx(props.variant === 'text' ? '10px 12px' : '10px 24px')};
     outline: none;
     cursor: pointer;
-    font-size: 14px;
-    line-height: 20px;
+    font-family: var(--font-iransans);
+    font-size: var(--font-size-body-medium);
+    line-height: var(--line-height-title-small);
     font-weight: 500;
     font-style: normal;
     display: flex;
@@ -38,10 +43,11 @@ export const Button = styled.button<ButtonProps>`
     }
     &:hover {
         background: ${props => clsx(
-            { '#735EAB': props.variant === 'filled' || !props.variant },
-            { '#F3F1F8': props.variant === 'outlined' || props.variant === 'text' },
-            { '#E8E0F0': props.variant === 'elevated' },
-            { '#DDD4ED': props.variant === 'tonal' }
+            { '#735EAB': (props.variant === 'filled' || !props.variant) && !props.background },
+            { '#F3F1F8': (props.variant === 'outlined' || props.variant === 'text') && !props.background },
+            { '#E8E0F0': (props.variant === 'elevated') && !props.background },
+            { '#DDD4ED': (props.variant === 'tonal') && !props.background },
+            [ !!props.background && props.background ]
         )};
         box-shadow: ${props => clsx(
             { '0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)': props.variant === 'filled' || props.variant === 'tonal' || !props.variant },
@@ -52,24 +58,27 @@ export const Button = styled.button<ButtonProps>`
     &:active,
     &:focus {
         background: ${props => clsx(
-            { '#7965AF': props.variant === 'filled' || !props.variant },
-            { '#ECEAF4': props.variant === 'outlined' || props.variant === 'text' },
-            { '#E6DFEF': props.variant === 'elevated' },
-            { '#D0C6DF': props.variant === 'tonal' }            
+            { '#7965AF': (props.variant === 'filled' || !props.variant) && !props.background },
+            { '#ECEAF4': (props.variant === 'outlined' || props.variant === 'text') && !props.background },
+            { '#E6DFEF': (props.variant === 'elevated') && !props.background },
+            { '#D0C6DF': (props.variant === 'tonal') && !props.background },
+            [ !!props.background && props.background ]
         )};
         box-shadow: ${props => clsx( props.variant === 'elevated' ? '0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)' : 'none' )};
-        border: ${props => clsx(props.variant === 'outlined' ? '1px solid #6750A4' : '0')};
+        border: ${props => clsx(props.variant === 'outlined' ? '1px solid var(--primary-color)' : '0')};
     }
     &:disabled {
         cursor: default;
         box-shadow: none;
         background: ${props => clsx(
-            { '#E3E3E4': props.variant === 'filled' || props.variant === 'elevated' || props.variant === 'tonal' || !props.variant },
-            { '#FFFFFF': props.variant === 'outlined' || props.variant === 'text' },
+            { '#E3E3E4': (props.variant === 'filled' || props.variant === 'elevated' || props.variant === 'tonal' || !props.variant) && !props.background },
+            { '#FFFFFF': (props.variant === 'outlined' || props.variant === 'text') && !props.background },
+            [ !!props.background && props.background ]
         )};
         color: ${props => clsx(
-            { '#979799': props.variant === 'filled' || props.variant === 'tonal' || props.variant === 'elevated' || !props.variant },
-            { '#A9A8AA': props.variant === 'outlined' || props.variant === 'text' },
+            { '#979799': (props.variant === 'filled' || props.variant === 'tonal' || props.variant === 'elevated' || !props.variant) && !props.textColor },
+            { '#A9A8AA': (props.variant === 'outlined' || props.variant === 'text') && !props.textColor },
+            [ !!props.textColor && props.textColor ]
         )};
         border: ${props => clsx(props.variant === 'outlined' ? '1px solid #E3E3E4' : '0')};
     }
