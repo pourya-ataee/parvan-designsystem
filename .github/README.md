@@ -22,7 +22,8 @@ Used to create a 'dist' folder within Windows systems and prepare the project fo
 
 Used to create a 'dist' folder within macOS and Linux systems and to prepare the project for publishing on npm.
 
-## 📦 Install
+
+## Install
 
 ```bash
 npm i parvan-designsystem
@@ -32,7 +33,8 @@ npm i parvan-designsystem
 yarn add parvan-designsystem
 ```
 
-## 🔨 Usage
+
+## Usage
 
 ```jsx
 import React from 'react';
@@ -49,7 +51,9 @@ const App = () => (
 
 `parvan-designsystem` is written in TypeScript with complete definitions.
 
+
 ## 🔗 Links
 
 - [Github Repository](https://github.com/pourya-ataee/parvan-component)
 - [Github Issues](https://github.com/pourya-ataee/parvan-component/issues)
+- [npm package](https://www.npmjs.com/package/parvan-designsystem)

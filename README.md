@@ -2,7 +2,7 @@
 
 Our design system at ParvanPajooh is built using ReactJS and Storybook, providing a robust and efficient development environment for UI components.
 
-## 📦 Install
+## Install
 
 ```bash
 npm i parvan-designsystem
@@ -12,7 +12,7 @@ npm i parvan-designsystem
 yarn add parvan-designsystem
 ```
 
-## 🔨 Usage
+## Usage
 
 ```jsx
 import React from 'react';
@@ -33,3 +33,4 @@ const App = () => (
 
 - [Github Repository](https://github.com/pourya-ataee/parvan-component)
 - [Github Issues](https://github.com/pourya-ataee/parvan-component/issues)
+- [npm package](https://www.npmjs.com/package/parvan-designsystem)
