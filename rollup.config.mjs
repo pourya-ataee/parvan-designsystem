@@ -15,11 +15,6 @@ export default [
                 sourcemap: true,
             },
             {
-                file: packageJson.module,
-                format: "esm",
-                sourcemap: true,
-            },
-            {
                 file: packageJson.types,
                 format: "es"
             }
