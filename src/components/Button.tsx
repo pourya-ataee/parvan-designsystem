@@ -3,7 +3,7 @@ import clsx from "clsx";
 import styled from "styled-components";
 import { globalStyles } from "./globalStyles";
 
-export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
+export interface ButtonProps {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
     textColor?: string
     background?: string

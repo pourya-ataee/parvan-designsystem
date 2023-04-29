@@ -1,7 +1,6 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss-modules";
 import packageJson from "./package.json" assert {type: "json"};
 
@@ -18,10 +17,6 @@ export default [
                 file: packageJson.module,
                 format: "esm",
                 sourcemap: true,
-            },
-            { 
-                file: packageJson.types, 
-                format: "es" 
             }
         ],
         plugins: [
@@ -36,7 +31,6 @@ export default [
             }),
             commonjs(),
             typescript({ tsconfig: "./tsconfig.json" }),
-            dts(),
             resolve()
         ],
         external: ["react", "react-dom"],
