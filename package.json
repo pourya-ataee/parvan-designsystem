@@ -1,6 +1,6 @@
 {
   "name": "parvan-designsystem",
-  "version": "0.1.29",
+  "version": "0.1.30",
   "description": "Parvan Pajooh frontend components",
   "private": false,
   "keywords": [
@@ -11,11 +11,11 @@
     "parvan_components"
   ],
   "files": [
-    "lib",
+    "dist",
     "README.md"
   ],
-  "main": "lib/index.cjs",
-  "module": "lib/index.esm.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.esm.js",
   "author": "pourya ataee",
   "engines": {
     "node": ">=14.0.0"
@@ -52,8 +52,8 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006 -s public",
-    "win:build": "(if exist lib rmdir /s /q lib) && rollup -c && (if exist \"lib/stories\" rmdir /s /q \"lib/stories\")",
-    "build": "rm -rf lib && rollup -c && rm -rf \"lib/stories\""
+    "win:build": "(if exist dist rmdir /s /q dist) && rollup -c && (if exist \"dist/stories\" rmdir /s /q \"dist/stories\")",
+    "build": "rm -rf dist && rollup -c && rm -rf \"dist/stories\""
   },
   "eslintConfig": {
     "extends": [

@@ -16,11 +16,11 @@ You will also see any lint errors in the console.
 
 ### `npm run win:build`
 
-Used to create a 'lib' folder within Windows systems and prepare the project for publishing on npm.
+Used to create a 'dist' folder within Windows systems and prepare the project for publishing on npm.
 
 ### `npm run build`
 
-Used to create a 'lib' folder within macOS and Linux systems and to prepare the project for publishing on npm.
+Used to create a 'dist' folder within macOS and Linux systems and to prepare the project for publishing on npm.
 
 ## Install
 
