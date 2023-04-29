@@ -3,7 +3,7 @@ import styled from "styled-components";
 import clsx from "clsx";
 import { GlobalStyles } from "../styles";
 
-export interface ButtonProps {
+export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
     textColor?: string
     background?: string
@@ -85,17 +85,9 @@ const ButtonC = styled.button<ButtonProps>`
     }
 `;
 
-interface IProp {
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    disabled?: boolean;
-    type?: "button" | "submit" | "reset";
-    className?: string;
-    style?: React.CSSProperties;
-    children?: React.ReactNode;
-}
-export const Button: React.FC<IProp> = (props) => (
+export const Button: React.FC = (props) => (
     <>
         <GlobalStyles />
-        <ButtonC {...props}>{props.children}</ButtonC>
+        <ButtonC {...props} />
     </>
 )
