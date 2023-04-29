@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import clsx from "clsx";
-import { GlobalStyles } from "../styles";
+import '../styles.css';
 
 export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
@@ -10,7 +10,7 @@ export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
     rounded?: 'min' | 'mid' | 'max'
 }
 
-const ButtonC = styled.button<ButtonProps>`
+export const Button = styled.button<ButtonProps>`
     background: ${props => clsx(
         { 'var(--primary-color)': (props.variant === 'filled' || !props.variant) && !props.background },
         { '#FFFFFF': (props.variant === 'outlined' || props.variant === 'text') && !props.background },
@@ -84,10 +84,3 @@ const ButtonC = styled.button<ButtonProps>`
         border: ${props => clsx(props.variant === 'outlined' ? '1px solid #E3E3E4' : '0')};
     }
 `;
-
-export const Button: React.FC = (props) => (
-    <>
-        <GlobalStyles />
-        <ButtonC {...props} />
-    </>
-)
