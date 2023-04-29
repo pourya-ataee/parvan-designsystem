@@ -1,6 +1,6 @@
 # Parvan Pajooh Design System
 
-Our design system at ParvanPajooh is built using ReactJS and Storybook, providing a robust and efficient development environment for UI components.
+Our design system at [ParvanPajooh](https://parvanpajooh.com/) is built using ReactJS and Storybook, providing a robust and efficient development environment for UI components.
 
 ## Available Scripts
 
@@ -22,7 +22,6 @@ Used to create a 'dist' folder within Windows systems and prepare the project fo
 
 Used to create a 'dist' folder within macOS and Linux systems and to prepare the project for publishing on npm.
 
-
 ## Install
 
 ```bash
@@ -32,7 +31,6 @@ npm i parvan-designsystem
 ```bash
 yarn add parvan-designsystem
 ```
-
 
 ## Usage
 
@@ -50,7 +48,6 @@ const App = () => (
 ### TypeScript
 
 `parvan-designsystem` is written in TypeScript with complete definitions.
-
 
 ## 🔗 Links
 
