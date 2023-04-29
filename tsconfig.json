@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "lib",
     "target": "ESNext",
     "declaration": true,
     "lib": [ "es6", "dom", "dom.iterable", "esnext" ],
@@ -19,5 +19,5 @@
     "jsx": "react-jsx"
   },
   "include": [ "src" ],
-  "exclude": [ "node_modules", "dist" ]
+  "exclude": [ "node_modules", "lib" ]
 }

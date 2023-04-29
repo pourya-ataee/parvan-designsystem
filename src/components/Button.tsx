@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import clsx from "clsx";
-import '../styles.css';
+import styled from "styled-components";
+import { globalStyles } from "./globalStyles";
 
 export interface ButtonProps extends React.HTMLProps<HTMLButtonElement> {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
@@ -83,4 +83,5 @@ export const Button = styled.button<ButtonProps>`
         )};
         border: ${props => clsx(props.variant === 'outlined' ? '1px solid #E3E3E4' : '0')};
     }
+    ${globalStyles}
 `;
