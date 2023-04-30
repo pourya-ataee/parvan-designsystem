@@ -9,15 +9,9 @@ export default {
       options: ['filled', 'outlined', 'text', 'elevated', 'tonal'],
       control: 'select'
     },
-    theme: {
-      control: 'none'
-    },
-    as: {
-      control: 'none'
-    },
-    forwardedAs: {
-      control: 'none'
-    }
+    theme: { table: { disable: true } },
+    as: { table: { disable: true } },
+    forwardedAs: { table: { disable: true } }
   }
 } as ComponentMeta<typeof Button>;
 
