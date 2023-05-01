@@ -10,7 +10,7 @@ export default {
             control: 'select'
         },
         size: {
-            options: ['small', 'large'],
+            options: ['small', 'medium', 'large'],
             control: 'select'
         },
         theme: { table: { disable: true } },
