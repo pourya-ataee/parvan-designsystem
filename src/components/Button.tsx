@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import { globalStyles } from "./globalStyles";

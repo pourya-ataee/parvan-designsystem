@@ -13,6 +13,9 @@ export default {
             options: ['small', 'medium', 'large'],
             control: 'select'
         },
+        children: {
+            control: false
+        },
         theme: { table: { disable: true } },
         as: { table: { disable: true } },
         forwardedAs: { table: { disable: true } }
@@ -24,10 +27,9 @@ const Template: ComponentStory<typeof FABs> = (args) => <FABs {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    disabled: false,
-    svg: (
-        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.56 0.589883L17.91 1.93988C18.7 2.71988 18.7 3.98988 17.91 4.76988L4.68 17.9999H0.5V13.8199L10.9 3.40988L13.73 0.589883C14.51 -0.190117 15.78 -0.190117 16.56 0.589883ZM2.5 15.9999L3.91 16.0599L13.73 6.22988L12.32 4.81988L2.5 14.6399V15.9999Z" fill="#6750A4" />
+    children: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M19.06 3.58988L20.41 4.93988C21.2 5.71988 21.2 6.98988 20.41 7.76988L7.18 20.9999H3V16.8199L13.4 6.40988L16.23 3.58988C17.01 2.80988 18.28 2.80988 19.06 3.58988ZM5 18.9999L6.41 19.0599L16.23 9.22988L14.82 7.81988L5 17.6399V18.9999Z" fill="#6750A4"/>
         </svg>
     ),
 };
@@ -35,9 +37,9 @@ Default.args = {
 export const Surface = Template.bind({});
 Surface.args = {
     variant: 'surface',
-    svg: (
-        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.56 0.589883L17.91 1.93988C18.7 2.71988 18.7 3.98988 17.91 4.76988L4.68 17.9999H0.5V13.8199L10.9 3.40988L13.73 0.589883C14.51 -0.190117 15.78 -0.190117 16.56 0.589883ZM2.5 15.9999L3.91 16.0599L13.73 6.22988L12.32 4.81988L2.5 14.6399V15.9999Z" fill="#6750A4" />
+    children: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M19.06 3.58988L20.41 4.93988C21.2 5.71988 21.2 6.98988 20.41 7.76988L7.18 20.9999H3V16.8199L13.4 6.40988L16.23 3.58988C17.01 2.80988 18.28 2.80988 19.06 3.58988ZM5 18.9999L6.41 19.0599L16.23 9.22988L14.82 7.81988L5 17.6399V18.9999Z" fill="#6750A4"/>
         </svg>
     ),
 };
@@ -45,9 +47,9 @@ Surface.args = {
 export const Primary = Template.bind({});
 Primary.args = {
     variant: 'primary',
-    svg: (
-        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.56 0.589883L17.91 1.93988C18.7 2.71988 18.7 3.98988 17.91 4.76988L4.68 17.9999H0.5V13.8199L10.9 3.40988L13.73 0.589883C14.51 -0.190117 15.78 -0.190117 16.56 0.589883ZM2.5 15.9999L3.91 16.0599L13.73 6.22988L12.32 4.81988L2.5 14.6399V15.9999Z" fill="#6750A4" />
+    children: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M19.06 3.58988L20.41 4.93988C21.2 5.71988 21.2 6.98988 20.41 7.76988L7.18 20.9999H3V16.8199L13.4 6.40988L16.23 3.58988C17.01 2.80988 18.28 2.80988 19.06 3.58988ZM5 18.9999L6.41 19.0599L16.23 9.22988L14.82 7.81988L5 17.6399V18.9999Z" fill="#6750A4"/>
         </svg>
     ),
 };
@@ -55,9 +57,9 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
     variant: 'secondary',
-    svg: (
-        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.56 0.589883L17.91 1.93988C18.7 2.71988 18.7 3.98988 17.91 4.76988L4.68 17.9999H0.5V13.8199L10.9 3.40988L13.73 0.589883C14.51 -0.190117 15.78 -0.190117 16.56 0.589883ZM2.5 15.9999L3.91 16.0599L13.73 6.22988L12.32 4.81988L2.5 14.6399V15.9999Z" fill="#6750A4" />
+    children: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fillRule="evenodd" clipRule="evenodd" d="M19.06 3.58988L20.41 4.93988C21.2 5.71988 21.2 6.98988 20.41 7.76988L7.18 20.9999H3V16.8199L13.4 6.40988L16.23 3.58988C17.01 2.80988 18.28 2.80988 19.06 3.58988ZM5 18.9999L6.41 19.0599L16.23 9.22988L14.82 7.81988L5 17.6399V18.9999Z" fill="#6750A4"/>
         </svg>
     ),
 };

@@ -6,9 +6,9 @@ import '../styles.css'
 
 export interface FABsProps {
     /**
-     * You must provide a value for this property.
+     * You must provide a value for this property (it can be svg or img).
      */
-    svg: ReactNode
+    children: ReactNode
     /**
      * Default: surface
      */
@@ -39,11 +39,11 @@ export interface FABsProps {
 
 
 const FABsC = (props: FABsProps) => {
-    const { svg, extended, ...buttonProps } = props;
+    const { children, extended, ...buttonProps } = props;
     return (
         <button {...buttonProps}>
             {!!extended && <span className="extended label-large">{extended}</span>}
-            {svg}
+            {children}
         </button>
     )
 }
@@ -63,16 +63,10 @@ export const FABs = styled(FABsC)`
         line-height: var(--line-height-label-large);
         font-weight: 500;
     }
-    svg {
+    svg, img {
         position: relative;
-        width: ${props => clsx(
-            { '20px': props.size === "small" || props.size === "medium" || !props.size },
-            { '24px': props.size === "large" },
-        )};
-        height: ${props => clsx(
-            { '20px': props.size === "small" || props.size === "medium" || !props.size },
-            { '24px': props.size === "large" },
-        )};
+        width: 24px
+        height: 24px
     }
     background: ${props => clsx(
         { 'var(--primary-color-11)': (props.variant === "surface" || !props.variant) && !props.background },
@@ -148,7 +142,7 @@ export const FABs = styled(FABsC)`
     }
     &:active {
         &:after {
-            background: unset;
+            background: transparent;
         }
         background: ${props => clsx(
             { 'var(--primary-color-11)': (props.variant === "surface" || !props.variant) && !props.background },
