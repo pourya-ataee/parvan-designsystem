@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import { globalStyles } from "./globalStyles";
 import '../styles.css'
 
-export interface IconButtonProps<Toggleable extends boolean> {
+interface IProps {
     /**
      * You must provide a value for this property (it can be svg or img).
      */
@@ -24,40 +24,56 @@ export interface IconButtonProps<Toggleable extends boolean> {
     /**
      * Is button toggleable or just clickable
      */
-    toggleable?: Toggleable
+    toggleable?: boolean
     /**
      * If the value of toggleableValue becomes true, this svg will be displayed.
      */
     fillSvg?: ReactNode
     /**
-     * It only works if toggleable is true (required if toggleable = true).
+     * If toggleableValue and setToggleableValue values are not passed, with this property, you can specify the default value of the button.
      */
-    toggleableValue: Toggleable extends true ? boolean : never;
-    /**
-     * It only works if toggleable is true (required if toggleable = true).
-     */
-    setToggleableValue: Toggleable extends true ? React.Dispatch<React.SetStateAction<boolean>> : never;
+    defaultValue?: boolean;
     /**
      * Additional class names
      */
     className?: string
-    onClick?: () => void;
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
+interface IValueProps {
+    /**
+     * It only works if toggleable is true.
+     */
+    toggleableValue: boolean;
+    /**
+     * It only works if toggleable is true.
+     */
+    setToggleableValue: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export interface IconButtonProps extends IProps, Partial<IValueProps> {};
 
-const IconButtonC = (props: IconButtonProps<boolean>) => {
-    const { children, fillSvg, toggleable, toggleableValue, setToggleableValue, className, onClick, ...buttonProps } = props;   
-    return (    
+const IconButtonC = (props: IconButtonProps) => {
+    const { children, fillSvg, toggleable, toggleableValue, setToggleableValue, className, onClick, defaultValue, ...buttonProps } = props;
+    const [toggleValue, setToggleValue] = useState<boolean>(defaultValue as boolean);
+    const handleClick = (e?: React.MouseEvent<HTMLButtonElement>) => {
+        if(toggleable) {
+            if (setToggleableValue !== undefined && toggleableValue !== undefined) {
+                setToggleableValue(!toggleableValue);
+            } else {
+                setToggleValue(!toggleValue);
+            }
+        }
+        !!onClick && onClick(e)
+    }
+
+    return (
         <button 
-            className={`toggleable--${!!toggleable ? 'true' : 'false'} ${clsx([ toggleable ? toggleableValue ? 'toggle-active' : 'toggle-inactive' : null ])} ${className}`}
-            onClick={() => { 
-                toggleable && !!setToggleableValue && setToggleableValue(!toggleableValue)
-                !!onClick && onClick()
-            }}
+            className={`toggleable--${!!toggleable ? 'true' : 'false'} ${clsx([toggleable ? toggleableValue || toggleValue ? 'toggle-active' : 'toggle-inactive' : null ])} ${className}`}
+            onClick={handleClick}
             {...buttonProps}
         >
-            {toggleable ? toggleableValue ? !!fillSvg ? fillSvg : children : children : children}
+            {toggleable ? toggleableValue || toggleValue ? !!fillSvg ? fillSvg : children : children : children}
         </button>
     )
 }
