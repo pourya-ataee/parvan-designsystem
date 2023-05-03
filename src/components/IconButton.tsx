@@ -222,19 +222,20 @@ export const IconButton = styled(IconButtonC)`
         transition: 0.3s;
     }
     &:disabled {
+        cursor: default;
         &:after {
-            background: transparent;
+            background: transparent !important;
         }
         background: ${props => clsx(
             { 'transparent': (props.variant === "standard" || props.variant === "outlined" || !props.variant) },
             { 'var(--on-surface-color-12)': props.variant === "filled" || props.variant === "tonal" },
-        )};
-        border-color: #979799;
+        )} !important;
+        border-color: #979799 !important;
         svg {
-            fill: #979799;
+            fill: #979799 !important;
         }
         svg * {
-            fill: #979799;
+            fill: #979799 !important;
         }
     }
     padding: 8px;

@@ -67,7 +67,7 @@ const SegmentedButtonC = (props: SegmentedButtonProps) => {
     }
 
     return (
-        <button className={`segmented-button-${disabled ? 'disabled' : selected || selectedC ? 'active' : 'inactive'} ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
+        <button className={`segmented-button segmented-button-${disabled ? 'disabled' : selected || selectedC ? 'active' : 'inactive'} ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
             {!!text && <span className="segmented-button-text label-large">{text}</span>}
             {!!icon && <span className="segmented-button-icon">{icon}</span>}
             {!disabled && (selected || selectedC) ? (
@@ -145,6 +145,7 @@ export const SegmentedButton = styled(SegmentedButtonC)`
         }
     }
     min-width: 108px;
+    height: 40px;
     padding: 10px 12px;
     outline: none;
     border: 1px solid var(--outline-color);
