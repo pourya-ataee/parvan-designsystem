@@ -26,11 +26,11 @@ interface IProps {
      */
     toggleable?: boolean
     /**
-     * If the value of toggleableValue becomes true, this svg will be displayed.
+     * If the value of toggleValue becomes true, this svg will be displayed.
      */
     fillSvg?: ReactNode
     /**
-     * If toggleableValue and setToggleableValue values are not passed, with this property, you can specify the default value of the button.
+     * If toggleValue and setToggleValue values are not passed, with this property, you can specify the default value of the button.
      */
     defaultValue?: boolean;
     /**
@@ -44,24 +44,24 @@ interface IValueProps {
     /**
      * It only works if toggleable is true.
      */
-    toggleableValue: boolean;
+    toggleValue: boolean;
     /**
      * It only works if toggleable is true.
      */
-    setToggleableValue: React.Dispatch<React.SetStateAction<boolean>>;
+    setToggleValue: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IconButtonProps extends IProps, Partial<IValueProps> {};
 
 const IconButtonC = (props: IconButtonProps) => {
-    const { children, fillSvg, toggleable, toggleableValue, setToggleableValue, className, onClick, defaultValue, ...buttonProps } = props;
-    const [toggleValue, setToggleValue] = useState<boolean>(defaultValue as boolean);
+    const { children, fillSvg, toggleable, toggleValue, setToggleValue, className, onClick, defaultValue, ...buttonProps } = props;
+    const [toggleValueC, setToggleValueC] = useState<boolean>(defaultValue as boolean);
     const handleClick = (e?: React.MouseEvent<HTMLButtonElement>) => {
         if(toggleable) {
-            if (setToggleableValue !== undefined && toggleableValue !== undefined) {
-                setToggleableValue(!toggleableValue);
-            } else {
+            if (setToggleValue !== undefined && toggleValue !== undefined) {
                 setToggleValue(!toggleValue);
+            } else {
+                setToggleValueC(!toggleValueC);
             }
         }
         !!onClick && onClick(e)
@@ -69,11 +69,11 @@ const IconButtonC = (props: IconButtonProps) => {
 
     return (
         <button 
-            className={`toggleable--${!!toggleable ? 'true' : 'false'} ${clsx([toggleable ? toggleableValue || toggleValue ? 'toggle-active' : 'toggle-inactive' : null ])} ${className}`}
+            className={`toggleable--${!!toggleable ? 'true' : 'false'} ${clsx([toggleable ? toggleValue || toggleValueC ? 'toggle-active' : 'toggle-inactive' : null ])} ${className}`}
             onClick={handleClick}
             {...buttonProps}
         >
-            {toggleable ? toggleableValue || toggleValue ? !!fillSvg ? fillSvg : children : children : children}
+            {toggleable ? toggleValue || toggleValueC ? !!fillSvg ? fillSvg : children : children : children}
         </button>
     )
 }
@@ -242,7 +242,7 @@ export const IconButton = styled(IconButtonC)`
     width: 40px;
     height: 40px;
     outline: none;
-    border: ${props => clsx([props.variant === "outlined" ? '1px solid #79747E' : '0'])};
+    border: ${props => clsx([props.variant === "outlined" ? '1px solid var(--outline-color)' : '0'])};
     cursor: pointer;
     display: flex;
     align-items: center;

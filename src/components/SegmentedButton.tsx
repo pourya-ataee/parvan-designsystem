@@ -1,202 +1,99 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import { globalStyles } from "./globalStyles";
 import '../styles.css'
 
-export interface SegmentedButtonProps<Toggleable extends boolean> {
+interface IProps {
     /**
-     * You must provide a value for this property (it can be svg or img).
+     * If toggleValue and setToggleValue values are not passed, with this property, you can specify the default value of the button.
      */
-    children: ReactNode
+    defaultValue?: boolean
     /**
-     * Default: standard
+     * Button text
      */
-    variant?: 'standard' | 'filled' | 'tonal' | 'outlined'
+    text?: string
     /**
-     * IconButton background color (If implemented, the styles related to hover, focus and active will be disabled)
+     * Please provide the value in SVG format. (You can also use icons from MUI.)
+     */
+    icon?: ReactNode
+    /**
+     * Button background color (If implemented, the styles related to hover, focus and active will be disabled)
      */
     background?: string
     /**
-     * IconButton svg color
+     * Button background color when is active (If implemented, the styles related to hover, focus and active will be disabled)
      */
-    svgColor?: string
+    activeBackground?: string
     /**
-     * Is button toggleable or just clickable
+     * Button is disable or not
      */
-    toggleable?: Toggleable
-    /**
-     * If the value of toggleableValue becomes true, this svg will be displayed.
-     */
-    fillSvg?: ReactNode
-    /**
-     * It only works if toggleable is true (required if toggleable = true).
-     */
-    toggleableValue: Toggleable extends true ? boolean : never;
-    /**
-     * It only works if toggleable is true (required if toggleable = true).
-     */
-    setToggleableValue: Toggleable extends true ? React.Dispatch<React.SetStateAction<boolean>> : never;
+    disabled?: boolean
     /**
      * Additional class names
      */
     className?: string
-    onClick?: () => void;
+    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
+interface IValueProps {
+    /**
+     * It only works if toggleable is true.
+     */
+    selected: boolean;
+    /**
+     * It only works if toggleable is true.
+     */
+    setSelected: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export interface SegmentedButtonProps extends IProps, Partial<IValueProps> { };
 
-const SegmentedButtonC = (props: SegmentedButtonProps<boolean>) => {
-    const { children, fillSvg, toggleable, toggleableValue, setToggleableValue, className, onClick, ...buttonProps } = props;
+const SegmentedButtonC = (props: SegmentedButtonProps) => {
+    const { selected, setSelected, defaultValue, onClick, className, disabled, text, icon, background, ...buttonProps } = props;
+    const [ selectedC, setSelectedC ] = useState<boolean>(defaultValue as boolean)
+
+    useEffect(() => {
+        if(disabled) {
+            setSelected !== undefined && selected !== undefined ? setSelected(false) : setSelectedC(false);
+        }
+    }, [disabled])
+
+    const handleClick = (e?: React.MouseEvent<HTMLButtonElement>) => {
+        if(!disabled) {
+            setSelected !== undefined && selected !== undefined ? setSelected(!selected) : setSelectedC(!selectedC);
+        }
+        !!onClick && onClick(e)
+    }
+
     return (
-        <button
-            className={`toggleable--${!!toggleable ? 'true' : 'false'} ${clsx([toggleable ? toggleableValue ? 'toggle-active' : 'toggle-inactive' : null])} ${className}`}
-            onClick={() => {
-                toggleable && !!setToggleableValue && setToggleableValue(!toggleableValue)
-                !!onClick && onClick()
-            }}
-            {...buttonProps}
-        >
-            {toggleable ? toggleableValue ? !!fillSvg ? fillSvg : children : children : children}
+        <button className={`segmented-button-${disabled ? 'disabled' : selected || selectedC ? 'active' : 'inactive'} ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
+            {!!text && <span className="segmented-button-text label-large">{text}</span>}
+            {!!icon && <span className="segmented-button-icon">{icon}</span>}
+            {!disabled && (selected || selectedC) ? (
+                <span className="segmented-button-checked">
+                    <svg height="18" viewBox="0 96 960 960" width="18"><path d="M378 810 154 586l43-43 181 181 384-384 43 43-427 427Z" /></svg>
+                </span>
+            ) : null}
         </button>
     )
 }
 
 export const SegmentedButton = styled(SegmentedButtonC)`
-    &.toggleable--true.toggle-inactive {
-        svg {
-            fill: ${props => clsx(
-    { 'var(--on-surface-variant-color)': (props.variant === "standard" || props.variant === "outlined" || props.variant === "tonal" || !props.variant) && !props.svgColor },
-    { 'var(--primary-color)': props.variant === "filled" && !props.svgColor },
-    [!!props.svgColor && props.svgColor]
-)};
-        }
-        svg * {
-            fill: ${props => clsx(
-    { 'var(--on-surface-variant-color)': (props.variant === "standard" || props.variant === "outlined" || props.variant === "tonal" || !props.variant) && !props.svgColor },
-    { 'var(--primary-color)': props.variant === "filled" && !props.svgColor },
-    [!!props.svgColor && props.svgColor]
-)};
-        }
-        background: ${props => clsx(
-    { 'transparent': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.background },
-    { 'var(--surface-variant)': (props.variant === "filled" || props.variant === "tonal") && !props.background },
-    [!!props.background && props.background]
-)};
-        &:hover {
-            &:after {
-                background: ${props => clsx(
-    { 'var(--on-secondary-container-color-08)': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.background },
-    { 'var(--primary-color-08)': props.variant === "filled" && !props.background },
-    { 'var(--on-secondary-container-color-08)': props.variant === "tonal" && !props.background },
-)};
-            }
-        }
-        &:active,
-        &:focus {
-            &:after {
-                background: ${props => clsx(
-    { 'var(--on-surface-color-12)': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.background },
-    { 'var(--primary-color-12)': props.variant === "filled" && !props.background },
-    { 'var(--on-surface-color-12)': props.variant === "tonal" && !props.background },
-)};
-            }
-        }
+    &.text-with-icon .segmented-button-text {
+        margin-right: 8px;
     }
-    &.toggleable--true.toggle-active {
-        svg {
-            fill: ${props => clsx(
-    { 'var(--primary-color)': (props.variant === "standard" || !props.variant) && !props.svgColor },
-    { 'var(--on-primary-color)': (props.variant === "filled" || props.variant === "outlined") && !props.svgColor },
-    { 'var(--on-secondary-container-color)': props.variant === "tonal" && !props.svgColor },
-    [!!props.svgColor && props.svgColor]
-)};
-        }
-        svg * {
-            fill: ${props => clsx(
-    { 'var(--primary-color)': (props.variant === "standard" || !props.variant) && !props.svgColor },
-    { 'var(--on-primary-color)': (props.variant === "filled" || props.variant === "outlined") && !props.svgColor },
-    { 'var(--on-secondary-container-color)': props.variant === "tonal" && !props.svgColor },
-    [!!props.svgColor && props.svgColor]
-)};
-        }
-        background: ${props => clsx(
-    { 'transparent': (props.variant === "standard" || !props.variant) && !props.background },
-    { 'var(--primary-color)': props.variant === "filled" && !props.background },
-    { 'var(--secondary-container-color)': props.variant === "tonal" && !props.background },
-    { 'var(--inverse-surface-color)': props.variant === "outlined" && !props.background },
-    [!!props.background && props.background]
-)};
-        &:hover {
-            &:after {
-                background: ${props => clsx(
-    { 'var(--primary-color-08)': (props.variant === "standard" || !props.variant) && !props.background },
-    { 'var(--on-primary-color-08)': props.variant === "filled" && !props.background },
-    { 'var(--on-secondary-container-color-08)': props.variant === "tonal" && !props.background },
-    { 'var(--inverse-on-surface-color-08)': props.variant === "outlined" && !props.background },
-)};
-            }
-        }
-        &:active,
-        &:focus {
-            &:after {
-                background: ${props => clsx(
-    { 'var(--primary-color-12)': (props.variant === "standard" || props.variant === "filled" || !props.variant) && !props.background },
-    { 'var(--on-secondary-color-12)': props.variant === "tonal" && !props.background },
-    { 'var(--inverse-on-surface-color-12)': props.variant === "outlined" && !props.background },
-)};
-            }
-        }
+    .segmented-button-checked {
+        margin-left: 8px;
     }
-    &.toggleable--false {
-        svg {
-            fill: ${props => clsx(
-    { 'var(--on-surface-variant-color)': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.svgColor },
-    { 'var(--on-primary-color)': props.variant === "filled" && !props.svgColor },
-    { 'var(--on-secondary-container-color)': props.variant === "tonal" && !props.svgColor },
-    [!!props.svgColor && props.svgColor]
-)};
-        }
-        svg * {
-            fill: ${props => clsx(
-    { 'var(--on-surface-variant-color)': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.svgColor },
-    { 'var(--on-primary-color)': props.variant === "filled" && !props.svgColor },
-    { 'var(--on-secondary-container-color)': props.variant === "tonal" && !props.svgColor },
-    [!!props.svgColor && props.svgColor]
-)};
-        }
-        background: ${props => clsx(
-    { 'transparent': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.background },
-    { 'var(--primary-color)': props.variant === "filled" && !props.background },
-    { 'var(--secondary-container-color)': props.variant === "tonal" && !props.background },
-    [!!props.background && props.background]
-)};
-        &:hover {
-            &:after {
-                background: ${props => clsx(
-    { 'var(--on-surface-variant-color-08)': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.background },
-    { 'var(--on-primary-color-08)': props.variant === "filled" && !props.background },
-    { 'var(--on-secondary-container-color-08)': props.variant === "tonal" && !props.background },
-)};
-            }
-        }
-        &:active,
-        &:focus {
-            &:after {
-                background: ${props => clsx(
-    { 'var(--on-surface-variant-color-12)': (props.variant === "standard" || props.variant === "outlined" || !props.variant) && !props.background },
-    { 'var(--on-primary-color-12)': props.variant === "filled" && !props.background },
-    { 'var(--on-secondary-container-color-12)': props.variant === "tonal" && !props.background },
-)};
-            }
-        }
+    >span {
+        display: flex
     }
-    svg {
-        position: relative;
-        width: 24px;
-        height: 24px;
+    >span>svg {
+        width: 18px
+        height: 18px
     }
-    &:after {
+    &:before {
         content: "";
         position: absolute;
         top: 0;
@@ -204,29 +101,53 @@ export const SegmentedButton = styled(SegmentedButtonC)`
         width: 100%;
         height: 100%;
         transition: 0.3s;
+        background: transparent;
+    }
+    &.segmented-button-active {
+        background: ${props => clsx([!!props.activeBackground ? props.activeBackground : 'var(--secondary-container-color)'] )};;
+        &:hover {
+            &:before {
+                background: ${props => clsx([!!props.activeBackground ? 'transparent' : 'var(--on-secondary-container-color-08)'])};
+            }
+        }
+        &:focus,
+        &:active {
+            &:before {
+                background: ${props => clsx([!!props.activeBackground ? 'transparent' : 'var(--on-secondary-container-color-12)'])};
+            }
+        }
+    }
+    &.segmented-button-inactive {
+        background: ${props => clsx([!!props.background ? props.background : 'transparent'])};
+        &:hover {
+            &:before {
+                background: ${props => clsx([!!props.background ? 'transparent' : 'var(--outline-color-08)'])};
+            }
+        }
+        &:focus,
+        &:active {
+            &:before {
+                background: ${props => clsx([!!props.background ? 'transparent' : 'var(--outline-color-12)'])};
+            }
+        }
     }
     &:disabled {
-        &:after {
-            background: transparent;
+        cursor: default;
+        background: transparent !important;
+        .segmented-button-text {
+            color: var(--on-surface-color);
+            opacity: 0.38;
         }
-        background: ${props => clsx(
-    { 'transparent': (props.variant === "standard" || props.variant === "outlined" || !props.variant) },
-    { 'var(--on-surface-color-12)': props.variant === "filled" || props.variant === "tonal" },
-)};
-        border-color: #979799;
-        svg {
-            fill: #979799;
-        }
-        svg * {
-            fill: #979799;
+        border-color: var(--outline-color-12);
+        >span>svg {
+            fill: #1C1B1F !important;
+            opacity: 0.38;
         }
     }
-    padding: 8px;
-    border-radius: 100px;
-    width: 40px;
-    height: 40px;
+    min-width: 108px;
+    padding: 10px 12px;
     outline: none;
-    border: ${props => clsx([props.variant === "outlined" ? '1px solid #79747E' : '0'])};
+    border: 1px solid var(--outline-color);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -234,5 +155,10 @@ export const SegmentedButton = styled(SegmentedButtonC)`
     transition: 0.3s;
     position: relative;
     overflow: hidden;
+    .label-large {
+        font-size: var(--font-size-label-large);
+        line-height: var(--line-height-label-large);
+        font-weight: 500;
+    }
     ${globalStyles}
 `;
