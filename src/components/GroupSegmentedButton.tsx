@@ -1,23 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { globalStyles } from "./globalStyles";
 import { SegmentedButton } from "./SegmentedButton";
 import { SegmentedButtonProps } from "./SegmentedButton";
 import '../styles.css'
 
+interface Id {
+    id: string
+}
+interface SegmentedButtonPropsWithIds extends SegmentedButtonProps, Id { };
+
 export interface GroupSegmentedButtonProps {
-    propList: SegmentedButtonProps[]
+    propList: SegmentedButtonPropsWithIds[]
     className?: string
     multiple?: boolean
 }
 
 const GroupSegmentedButtonC = (props: GroupSegmentedButtonProps) => {
-    const { propList, className, ...other } = props
-    const [value, setValue] = useState()
+    const { propList, className, multiple, ...other } = props;
 
+    const handleClick = () => {
+        if(!multiple) {
+            console.log('slm')
+        }
+    }
     
     return (
-        <div className={`${className} group-segmented-button-container`} {...other}>
+        <div className={`${className} group-segmented-button-container`} {...other} onClick={handleClick}>
             {propList.map((e, i) => (
                 <SegmentedButton {...e} key={i} />
             ))}
