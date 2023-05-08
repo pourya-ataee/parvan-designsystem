@@ -54,8 +54,12 @@ const SegmentedButtonC = (props: SegmentedButtonProps) => {
     const [ selectedC, setSelectedC ] = useState<boolean>(defaultValue as boolean)
 
     useEffect(() => {
+        setSelected !== undefined && defaultValue !== undefined && setSelected(defaultValue);
+    }, [])
+
+    useEffect(() => {
         if(disabled) {
-            setSelected !== undefined && selected !== undefined ? setSelected(false) : setSelectedC(false);
+            setSelected !== undefined ? setSelected(false) : setSelectedC(false);
         }
     }, [disabled])
 
@@ -67,10 +71,10 @@ const SegmentedButtonC = (props: SegmentedButtonProps) => {
     }
 
     return (
-        <button className={`segmented-button segmented-button-${disabled ? 'disabled' : selected || selectedC ? 'active' : 'inactive'} ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
+        <button className={`segmented-button segmented-button-${disabled ? 'disabled' : selected !== undefined ? selected ? 'active' : 'inactive' : selectedC ? 'active' : 'inactive' } ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
             {!!text && <span className="segmented-button-text label-large">{text}</span>}
             {!!icon && <span className="segmented-button-icon">{icon}</span>}
-            {!disabled && (selected || selectedC) ? (
+            {!disabled && (selected !== undefined ? selected : selectedC) ? (
                 <span className="segmented-button-checked">
                     <svg height="18" viewBox="0 96 960 960" width="18"><path d="M378 810 154 586l43-43 181 181 384-384 43 43-427 427Z" /></svg>
                 </span>

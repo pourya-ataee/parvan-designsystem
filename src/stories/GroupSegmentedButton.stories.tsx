@@ -5,9 +5,6 @@ export default {
     title: 'SegmentedButton/GroupSegmentedButton',
     component: GroupSegmentedButton,
     argTypes: {
-        icon: {
-            control: false
-        },
         theme: { table: { disable: true } },
         as: { table: { disable: true } },
         forwardedAs: { table: { disable: true } }
@@ -19,11 +16,11 @@ const Template: ComponentStory<typeof GroupSegmentedButton> = (args) => <GroupSe
 
 export const ExclusiveSelection = Template.bind({});
 ExclusiveSelection.args = {
+    defaultValue: 'withIcon',
     propList: [
         {
             id: 'withIcon',
             text: 'with icon',
-            disabled: false,
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
@@ -33,7 +30,6 @@ ExclusiveSelection.args = {
         {
             id: 'withoutIcon',
             text: 'without icon',
-            disabled: false,
         },
         {
             id: 'disabled',
@@ -47,7 +43,6 @@ ExclusiveSelection.args = {
         },
         {
             id: 'justIcon',
-            disabled: false,
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
@@ -64,7 +59,7 @@ MultipleSelection.args = {
         {
             id: 'withIcon',
             text: 'with icon',
-            disabled: false,
+            defaultValue: true,
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
@@ -74,7 +69,6 @@ MultipleSelection.args = {
         {
             id: 'withoutIcon',
             text: 'without icon',
-            disabled: false,
         },
         {
             id: 'disabled',
@@ -88,7 +82,7 @@ MultipleSelection.args = {
         },
         {
             id: 'justIcon',
-            disabled: false,
+            defaultValue: true,
             icon: (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
