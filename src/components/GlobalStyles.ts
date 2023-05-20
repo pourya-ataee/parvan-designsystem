@@ -1,4 +1,6 @@
-export const globalStyles = `
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyles = createGlobalStyle`
     /* colors variable */
     --primary-color: #6750A4;
     --primary-container-color: #EADDFF;

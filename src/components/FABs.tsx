@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
-import { globalStyles } from "./globalStyles";
+import '../styles.css'
 import '../styles.css'
 
 export interface FABsProps {
@@ -163,6 +163,5 @@ export const FABs = styled(FABsC)`
             )};
         }
     }
-    ${globalStyles}
 `;
     

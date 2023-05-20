@@ -1,6 +1,6 @@
 {
   "name": "parvan-designsystem",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Parvan Pajooh frontend components",
   "private": false,
   "keywords": [
@@ -14,6 +14,7 @@
     "lib",
     "README.md"
   ],
+  "license": "MIT",
   "main": "lib/index.cjs",
   "module": "lib/index.esm.js",
   "types": "lib/types.d.ts",

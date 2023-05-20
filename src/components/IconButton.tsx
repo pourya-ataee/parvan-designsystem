@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
-import { globalStyles } from "./globalStyles";
+import '../styles.css'
 import '../styles.css'
 
 interface IProps {
@@ -251,5 +251,4 @@ export const IconButton = styled(IconButtonC)`
     transition: 0.3s;
     position: relative;
     overflow: hidden;
-    ${globalStyles}
 `;

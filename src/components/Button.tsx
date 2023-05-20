@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import styled from "styled-components";
-import { globalStyles } from "./globalStyles";
+import '../styles.css'
 
 export interface ButtonProps {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
@@ -82,5 +82,4 @@ export const Button = styled.button<ButtonProps>`
         )};
         border: ${props => clsx(props.variant === 'outlined' ? '1px solid #E3E3E4' : '0')};
     }
-    ${globalStyles}
 `;

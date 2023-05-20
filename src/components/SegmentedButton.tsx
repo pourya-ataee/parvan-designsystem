@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useEffect } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
-import { globalStyles } from "./globalStyles";
+import '../styles.css'
 import '../styles.css'
 
 interface IProps {
@@ -165,5 +165,4 @@ export const SegmentedButton = styled(SegmentedButtonC)`
         line-height: var(--line-height-label-large);
         font-weight: 500;
     }
-    ${globalStyles}
 `;

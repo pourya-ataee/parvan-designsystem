@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { globalStyles } from "./globalStyles";
+import '../styles.css'
 import { SegmentedButton } from "./SegmentedButton";
 import { SegmentedButtonProps } from "./SegmentedButton";
 import '../styles.css'
@@ -96,5 +96,4 @@ export const GroupSegmentedButton = styled(GroupSegmentedButtonC)`
             border-radius: 0 100px 100px 0;
         }
     }
-    ${globalStyles}
 `;
