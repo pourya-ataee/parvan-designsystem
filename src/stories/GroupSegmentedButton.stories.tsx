@@ -22,7 +22,7 @@ ExclusiveSelection.args = {
             id: 'withIcon',
             text: 'with icon',
             icon: (
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
                 </svg>
             )
@@ -36,7 +36,7 @@ ExclusiveSelection.args = {
             text: 'disabled',
             disabled: true,
             icon: (
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
                 </svg>
             )
@@ -44,7 +44,7 @@ ExclusiveSelection.args = {
         {
             id: 'justIcon',
             icon: (
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
                 </svg>
             )
@@ -61,7 +61,7 @@ MultipleSelection.args = {
             text: 'with icon',
             defaultValue: true,
             icon: (
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
                 </svg>
             )
@@ -75,7 +75,7 @@ MultipleSelection.args = {
             text: 'disabled',
             disabled: true,
             icon: (
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
                 </svg>
             )
@@ -84,7 +84,7 @@ MultipleSelection.args = {
             id: 'justIcon',
             defaultValue: true,
             icon: (
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path fillRule="evenodd" clipRule="evenodd" d="M9 4.5L14.25 13.5H3.75L9 4.5Z" fill="#1C1B1F" />
                 </svg>
             )

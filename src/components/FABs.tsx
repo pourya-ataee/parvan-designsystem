@@ -42,7 +42,7 @@ const FABsC = (props: FABsProps) => {
     const { children, extended, ...buttonProps } = props;
     return (
         <button {...buttonProps}>
-            {!!extended && <span className="extended label-large">{extended}</span>}
+            {!!extended && <span className="extended label__large">{extended}</span>}
             {children}
         </button>
     )
@@ -58,7 +58,7 @@ export const FABs = styled(FABsC)`
             [ !!props.extendedColor && props.extendedColor ]
         )};
     }
-    .label-large {
+    .label__large {
         font-size: var(--font-size-label-large);
         line-height: var(--line-height-label-large);
         font-weight: 500;

@@ -225,92 +225,92 @@
     --line-height-body-small: 16px;
 }
 
-.display-large {
+.display__large {
     font-size: var(--font-size-display-large);
     line-height: var(--line-height-display-large);
     font-weight: 400;
 }
 
 /* start::font-styles */
-.display-medium {
+.display__medium {
     font-size: var(--font-size-display-medium);
     line-height: var(--line-height-display-medium);
     font-weight: 400;
 }
 
-.display-small {
+.display__small {
     font-size: var(--font-size-display-small);
     line-height: var(--line-height-display-small);
     font-weight: 400;
 }
 
-.headline-large {
+.headline__large {
     font-size: var(--font-size-headline-large);
     line-height: var(--line-height-headline-large);
     font-weight: 400;
 }
 
-.headline-medium {
+.headline__medium {
     font-size: var(--font-size-headline-medium);
     line-height: var(--line-height-headline-medium);
     font-weight: 400;
 }
 
-.headline-small {
+.headline__small {
     font-size: var(--font-size-headline-small);
     line-height: var(--line-height-headline-small);
     font-weight: 400;
 }
 
-.title-large {
+.title__large {
     font-size: var(--font-size-title-large);
     line-height: var(--line-height-title-large);
     font-weight: 400;
 }
 
-.title-medium {
+.title__medium {
     font-size: var(--font-size-title-medium);
     line-height: var(--line-height-title-medium);
     font-weight: 500;
 }
 
-.title-small {
+.title__small {
     font-size: var(--font-size-title-small);
     line-height: var(--line-height-title-small);
     font-weight: 500;
 }
 
-.label-large {
+.label__large {
     font-size: var(--font-size-label-large);
     line-height: var(--line-height-label-large);
     font-weight: 500;
 }
 
-.label-medium {
+.label__medium {
     font-size: var(--font-size-label-medium);
     line-height: var(--line-height-label-medium);
     font-weight: 500;
 }
 
-.label-small {
+.label__small {
     font-size: var(--font-size-label-small);
     line-height: var(--line-height-label-small);
     font-weight: 500;
 }
 
-.body-large {
+.body__large {
     font-size: var(--font-size-body-large);
     line-height: var(--line-height-body-large);
     font-weight: 400;
 }
 
-.body-medium {
+.body__medium {
     font-size: var(--font-size-body-medium);
     line-height: var(--line-height-body-medium);
     font-weight: 400;
 }
 
-.body-small {
+.body__small {
     font-size: var(--font-size-body-small );
     line-height: var(--line-height-body-small );
     font-weight: 400;

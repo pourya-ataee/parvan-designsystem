@@ -103,20 +103,19 @@ const TextInputC = (props: TextInputProps) => {
                     onBlur={handleBlur}
                     onFocus={handleFocus}
                     onChange={handleChange}
-                    defaultValue={defaultValue}
                     value={value !== undefined && setValue !== undefined ? value : valueC}
                     className={`${!!inputClassName ? inputClassName : ''} remove-icon-${isVisible ? 'visible' : 'invisible'} parvan-input`} 
                     {...inputProps} 
                 />
                 {!disabled ? !!error ? (
                     <span className="remove-button error">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 17V15H13V17H11ZM11 7V13H13V7H11Z" fill="#B3261E" />
                         </svg>
                     </span>
                 ) : isVisible && (
                     <span className="remove-button" onClick={handleRemoveButton}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 10.59L15.59 7L17 8.41L13.41 12L17 15.59L15.59 17L12 13.41L8.41 17L7 15.59L10.59 12L7 8.41L8.41 7L12 10.59Z" fill="#49454F" />
                         </svg>
                     </span>
