@@ -2,7 +2,6 @@ import React, { ReactNode, useState, useEffect } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import '../styles.css'
-import '../styles.css'
 
 interface IProps {
     /**

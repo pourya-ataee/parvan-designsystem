@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import '../styles.css'
 import { SegmentedButton } from "./SegmentedButton";
 import { SegmentedButtonProps } from "./SegmentedButton";
 import '../styles.css'
