@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { SegmentedButton } from "./SegmentedButton";
 import { SegmentedButtonProps } from "./SegmentedButton";
-import '../styles.css'
+import '../styles.css';
 
 interface Id {
     id: string
@@ -66,7 +66,7 @@ const GroupSegmentedButtonC = (props: GroupSegmentedButtonProps) => {
 
     return (
         <div className={`${className} group-segmented-button-container group-segmented-button-dir-${!!dir ? dir : 'ltr'}`} {...other}>
-            {propList.map((e, i) => (
+            {propList.map((e) => (
                 <SegmentedButton key={e.id} {...e} selected={!multiple ? selected === e.id : multipleSelect.includes(e.id)} onClick={() => handleClick(e.id)} />
             ))}
         </div>
