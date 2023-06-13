@@ -1,9 +1,9 @@
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useState, ButtonHTMLAttributes } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import '../styles.css'
 
-interface IProps {
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * You must provide a value for this property (it can be svg or img).
      */
@@ -31,7 +31,7 @@ interface IProps {
     /**
      * If toggleValue and setToggleValue values are not passed, with this property, you can specify the default value of the button.
      */
-    defaultValue?: boolean;
+    toggleDefaultValue?: boolean;
     /**
      * Additional class names
      */
@@ -53,8 +53,8 @@ interface IValueProps {
 export interface IconButtonProps extends IProps, Partial<IValueProps> {};
 
 const IconButtonC = (props: IconButtonProps) => {
-    const { children, fillSvg, toggleable, toggleValue, setToggleValue, className, onClick, defaultValue, ...buttonProps } = props;
-    const [toggleValueC, setToggleValueC] = useState<boolean>(defaultValue as boolean);
+    const { children, fillSvg, toggleable, toggleValue, setToggleValue, className, onClick, toggleDefaultValue, ...buttonProps } = props;
+    const [toggleValueC, setToggleValueC] = useState<boolean>(toggleDefaultValue as boolean);
     const handleClick = (e?: React.MouseEvent<HTMLButtonElement>) => {
         if(toggleable) {
             if (setToggleValue !== undefined && toggleValue !== undefined) {
@@ -67,7 +67,8 @@ const IconButtonC = (props: IconButtonProps) => {
     }
 
     return (
-        <button 
+        <button
+            type="button"
             className={`toggleable--${!!toggleable ? 'true' : 'false'} ${clsx([toggleable ? toggleValue || toggleValueC ? 'toggle-active' : 'toggle-inactive' : null ])} ${className}`}
             onClick={handleClick}
             {...buttonProps}

@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from "react";
+import React, { ReactNode, useState, useEffect, ButtonHTMLAttributes } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import '../styles.css'
@@ -7,7 +7,7 @@ interface IProps {
     /**
      * If toggleValue and setToggleValue values are not passed, with this property, you can specify the default value of the button.
      */
-    defaultValue?: boolean
+    selectedDefaultValue?: boolean
     /**
      * Button text
      */
@@ -32,7 +32,6 @@ interface IProps {
      * Additional class names
      */
     className?: string
-    onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 interface IValueProps {
@@ -46,14 +45,14 @@ interface IValueProps {
     setSelected: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface SegmentedButtonProps extends IProps, Partial<IValueProps> { };
+export interface SegmentedButtonProps extends IProps, ButtonHTMLAttributes<HTMLButtonElement>, Partial<IValueProps> { };
 
 const SegmentedButtonC = (props: SegmentedButtonProps) => {
-    const { selected, setSelected, defaultValue, onClick, className, disabled, text, icon, background, ...buttonProps } = props;
-    const [ selectedC, setSelectedC ] = useState<boolean>(defaultValue as boolean)
+    const { selected, setSelected, selectedDefaultValue, onClick, className, disabled, text, icon, background, ...buttonProps } = props;
+    const [ selectedC, setSelectedC ] = useState<boolean>(selectedDefaultValue as boolean)
 
     useEffect(() => {
-        setSelected !== undefined && defaultValue !== undefined && setSelected(defaultValue);
+        setSelected !== undefined && selectedDefaultValue !== undefined && setSelected(selectedDefaultValue);
     }, [])
 
     useEffect(() => {
@@ -62,7 +61,7 @@ const SegmentedButtonC = (props: SegmentedButtonProps) => {
         }
     }, [disabled])
 
-    const handleClick = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         if(!disabled) {
             setSelected !== undefined && selected !== undefined ? setSelected(!selected) : setSelectedC(!selectedC);
         }
@@ -70,7 +69,7 @@ const SegmentedButtonC = (props: SegmentedButtonProps) => {
     }
 
     return (
-        <button className={`segmented-button segmented-button-${disabled ? 'disabled' : selected !== undefined ? selected ? 'active' : 'inactive' : selectedC ? 'active' : 'inactive' } ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
+        <button type="button" className={`segmented-button segmented-button-${disabled ? 'disabled' : selected !== undefined ? selected ? 'active' : 'inactive' : selectedC ? 'active' : 'inactive' } ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
             {!!text && <span className="segmented-button-text label__large">{text}</span>}
             {!!icon && <span className="segmented-button-icon">{icon}</span>}
             {!disabled && (selected !== undefined ? selected : selectedC) ? (

@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode, ButtonHTMLAttributes } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import '../styles.css';
 
-export interface FABsProps {
+export interface FABsProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * You must provide a value for this property (it can be svg or img).
      */

@@ -1,9 +1,9 @@
-import { ChangeEvent, FocusEvent, ReactNode, useState } from "react";
+import { ChangeEvent, FocusEvent, ReactNode, useState, InputHTMLAttributes } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import '../styles.css';
 
-interface IProps {
+interface IProps extends InputHTMLAttributes<HTMLInputElement> {
     /**
      * Input style type
      */
@@ -55,8 +55,8 @@ interface IProps {
 }
 
 interface IValueProps {
-    value: string;
-    setValue: React.Dispatch<React.SetStateAction<string>>;
+    value: string | ReadonlyArray<string> | number | undefined;
+    setValue: React.Dispatch<React.SetStateAction<string | ReadonlyArray<string> | number | undefined>>;
 }
 
 export interface TextInputProps extends IProps, Partial<IValueProps> { };

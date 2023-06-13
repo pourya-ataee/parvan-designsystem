@@ -1,8 +1,9 @@
+import { ButtonHTMLAttributes } from 'react';
 import clsx from "clsx";
 import styled from "styled-components";
 import '../styles.css'
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'filled' | 'outlined' | 'text' | 'elevated' | 'tonal'
     textColor?: string
     background?: string

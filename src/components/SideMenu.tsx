@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from "react";
+import React, { ReactNode, useState, useEffect, HTMLAttributes } from "react";
 import clsx from "clsx";
 import styled from "styled-components";
 import '../styles.css'
@@ -10,7 +10,7 @@ type menuItem = {
     onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-export interface SideMenuProps {
+export interface SideMenuProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * SideMenu direction
      */

@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, HTMLAttributes } from "react";
 import styled from "styled-components";
 import { SegmentedButton } from "./SegmentedButton";
 import { SegmentedButtonProps } from "./SegmentedButton";
 import '../styles.css';
 
-interface Id {
-    id: string
-}
-interface SegmentedButtonPropsWithIds extends SegmentedButtonProps, Id { };
+interface SegmentedButtonPropsWithIds extends SegmentedButtonProps { id: string };
 
-export interface GroupSegmentedButtonProps {
+export interface GroupSegmentedButtonProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Each button properties.
      * For more information check SegmentedButton properties.
@@ -39,9 +36,9 @@ const GroupSegmentedButtonC = (props: GroupSegmentedButtonProps) => {
     const { propList, className, multiple, dir, defaultValue, ...other } = props;
     const [selected, setSelected] = useState<string | null>(defaultValue !== undefined ? defaultValue : null);
     const [multipleSelect, setMultipleSelect] = useState<string[]>([]);
-    
+
     useEffect(() => {
-        if(multiple) {
+        if (multiple) {
             const arr: string[] = []
             propList.forEach(e => {
                 !!e?.defaultValue && arr.push(e.id)
@@ -51,10 +48,10 @@ const GroupSegmentedButtonC = (props: GroupSegmentedButtonProps) => {
     }, [])
 
     const handleClick = (id: string) => {
-        if(!multiple) {
+        if (!multiple) {
             setSelected(id);
         } else {
-            if(multipleSelect.includes(id)) {
+            if (multipleSelect.includes(id)) {
                 setMultipleSelect(multipleSelect.filter((e) => {
                     return e !== id;
                 }))
