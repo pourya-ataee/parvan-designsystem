@@ -1,6 +1,6 @@
 {
   "name": "parvan-designsystem",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Parvan Pajooh frontend components",
   "private": false,
   "keywords": [
@@ -35,7 +35,6 @@
     "url": "https://github.com/pourya-ataee/parvan-component/issues"
   },
   "homepage": "https://github.com/pourya-ataee/parvan-component#readme",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
