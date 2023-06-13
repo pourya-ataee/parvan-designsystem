@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'parvan-designsystem',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format) => `index.${format}${format === 'es' ? '.js' : ''}`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
