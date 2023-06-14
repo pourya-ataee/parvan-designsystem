@@ -5,22 +5,18 @@ import dts from 'vite-plugin-dts';
 export default defineConfig({
   plugins: [react(), dts()],
   build: {
-    manifest: true,
-    minify: true,
-    reportCompressedSize: true,
-    outDir: 'lib',
-    sourcemap: true,
+    outDir: 'dist',
     lib: {
       entry: 'src/index.ts',
       name: 'parvan-designsystem',
-      fileName: 'index',
+      fileName: (format) => format === 'cjs' ? `index.${format}` : `index.${format}.js`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'styled-components', 'clsx'],
       output: {
         globals: {
-          react: 'React',
+          'react': 'React',
           'react-dom': 'ReactDOM',
           'styled-components': 'styled',
           'clsx': 'clsx'

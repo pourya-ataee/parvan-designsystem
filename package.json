@@ -1,6 +1,6 @@
 {
   "name": "parvan-designsystem",
-  "version": "1.0.9",
+  "version": "1.0.30",
   "description": "Parvan Pajooh frontend components",
   "private": false,
   "keywords": [
@@ -10,12 +10,13 @@
     "parvan",
     "parvan_components"
   ],
-  "main": "lib/index.cjs",
-  "module": "lib/index.js",
-  "types": "lib/types.d.ts",
-  "typings": "lib/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.es.js",
+  "types": "dist/types.d.ts",
+  "typings": "dist/index.d.ts",
   "files": [
-    "lib/*",
+    "dist/*",
+    "!dist/*.map",
     "!**/__tests__",
     "!**/__mocks__",
     "!**/*.spec.*",
@@ -34,7 +35,7 @@
     "url": "https://github.com/pourya-ataee/parvan-component/issues"
   },
   "homepage": "https://github.com/pourya-ataee/parvan-component#readme",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
