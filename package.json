@@ -1,6 +1,6 @@
 {
   "name": "parvan-designsystem",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "Parvan Pajooh frontend components",
   "private": false,
   "keywords": [
@@ -10,8 +10,7 @@
     "parvan",
     "parvan_components"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.es.js",
+  "main": "dist/index.cjs.js",
   "types": "dist/types.d.ts",
   "typings": "dist/index.d.ts",
   "files": [

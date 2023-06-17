@@ -9,8 +9,8 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'parvan-designsystem',
-      fileName: (format) => format === 'cjs' ? `index.${format}` : `index.${format}.js`,
-      formats: ['es', 'cjs'],
+      fileName: (format) => `index.${format}.js`,
+      formats: ['cjs'],
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'styled-components', 'clsx'],
