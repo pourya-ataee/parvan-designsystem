@@ -12,7 +12,7 @@ export default {
 } as ComponentMeta<typeof SideMenu>;
 
 
-const Template: ComponentStory<typeof SideMenu> = (args) => <SideMenu {...args} />;
+/* const Template: ComponentStory<typeof SideMenu> = (args) => <SideMenu {...args} />;
 
 export const RTL = Template.bind({});
 RTL.args = {
@@ -124,4 +124,4 @@ LTR.args = {
             id: 'menu-item3',
         },
     ]
-};
+}; */

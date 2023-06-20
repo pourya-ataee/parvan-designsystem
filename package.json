@@ -34,7 +34,7 @@
     "url": "https://github.com/pourya-ataee/parvan-component/issues"
   },
   "homepage": "https://github.com/pourya-ataee/parvan-component#readme",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
