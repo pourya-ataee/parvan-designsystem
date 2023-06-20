@@ -4,11 +4,10 @@ import '../styles.css'
 import clsx from "clsx";
 
 export interface IProps extends HTMLAttributes<HTMLDivElement> {
-    background?: string
+    disabled?: boolean
+    className?: string
     initialValue?: boolean
     onClick?: () => void
-    className?: string
-    disabled?: boolean
 }
 
 interface IValueProps {
@@ -19,7 +18,7 @@ interface IValueProps {
 export interface SwitchButtonProps extends IProps, Partial<IValueProps> { };
 
 const SwitchButtonC = (props: SwitchButtonProps) => {
-    const { value, setValue, background, initialValue, className, disabled, onClick, ...otherProps } = props
+    const { value, setValue, initialValue, className, disabled, onClick, ...otherProps } = props
     const [valueC, setValueC] = useState<boolean>(initialValue !== undefined ? initialValue : false);
 
     const handleClick = () => {
@@ -53,7 +52,7 @@ export const SwitchButton = styled(SwitchButtonC)`
     cursor: ${props => clsx([!!props.disabled ? 'default' : 'pointer'])};
     position: relative;
     box-sizing: border-box;
-    background: ${props => clsx([!!props.background ? props.background : 'var(--primary-color)'])};
+    background: var(--primary-color);
     border-radius: 100px;
     width: 52px;
     height: 32px;
