@@ -46,7 +46,7 @@ const CheckboxC = (props: CheckboxProps) => {
 export const Checkbox = styled(CheckboxC)`
     border: 0;
     outline: none;
-    cursor: ${props => clsx([!!props.disabled ? 'default !important' : 'pointer'])};
+    cursor: ${props => clsx([!!props.disabled ? 'default' : 'pointer'])};
     position: relative;
     box-sizing: border-box;
     transition: 0.3s;
@@ -60,7 +60,6 @@ export const Checkbox = styled(CheckboxC)`
     appearance: none;
     -webkit-appearance: none;
     outline: none;
-    cursor: pointer;
     &:after {
         content: '';
         position: absolute;

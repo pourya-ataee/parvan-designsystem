@@ -104,14 +104,14 @@ export const SwitchButton = styled(SwitchButtonC)`
         &.container-active-true { 
             .pd-switch-slider-container {
                 &:after {
-                    background: var(--primary-color-12);
+                    background: ${props => clsx([!!props.disabled ? 'transparent' : 'var(--primary-color-12)'])};
                 }
             }
         }
         &.container-active-false { 
             .pd-switch-slider-container {
                 &:before {
-                    background: var(--on-surface-color-12);
+                    background: ${props => clsx([!!props.disabled ? 'transparent' : 'var(--on-surface-color-12)'])};
                 }
             }
         }
