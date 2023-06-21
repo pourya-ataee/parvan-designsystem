@@ -11,10 +11,10 @@ export default {
     }
 } as ComponentMeta<typeof SideMenu>;
 
+// @ts-ignore
+const Template: ComponentStory<typeof SideMenu> = (args) => <SideMenu {...args} />;
 
-/* const Template: ComponentStory<typeof SideMenu> = (args) => <SideMenu {...args} />;
-
-export const RTL = Template.bind({});
+/* export const RTL = Template.bind({});
 RTL.args = {
     dir: 'rtl',
     logo: 'Jaakoo',
