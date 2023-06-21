@@ -1,9 +1,9 @@
 import { HTMLAttributes, Dispatch, SetStateAction, useState } from "react";
 import styled from "styled-components";
-import '../styles.css'
 import clsx from "clsx";
+import '../styles.css';
 
-export interface IProps extends HTMLAttributes<HTMLDivElement> {
+interface IProps extends HTMLAttributes<HTMLDivElement> {
     disabled?: boolean
     className?: string
     initialValue?: boolean
@@ -80,8 +80,41 @@ export const SwitchButton = styled(SwitchButtonC)`
                 right: calc(100% - 24px);
             }
         }
+        &:after,
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            transition: 0.3s;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border-radius: 100px;
+        }
+        &:after {
+            right: -8px;
+        }
+        &:before {
+            left: -8px;
+        }
     }
-    &:hover { 
+    &:hover {
+        &.container-active-true { 
+            .pd-switch-slider-container {
+                &:after {
+                    background: var(--primary-color-12);
+                }
+            }
+        }
+        &.container-active-false { 
+            .pd-switch-slider-container {
+                &:before {
+                    background: var(--on-surface-color-12);
+                }
+            }
+        }
         .pd-switch-slider {
             &.active-true {
                 background: var(--primary-container-color);
@@ -89,6 +122,7 @@ export const SwitchButton = styled(SwitchButtonC)`
             &.active-false {
                 background: var(--on-surface-variant-color);
             }
+            
         }
     }
     &.container-active-true {

@@ -1,6 +1,7 @@
 export * from "./FABs";
 export * from "./SideMenu";
 export * from "./Button";
+export * from "./Checkbox";
 export * from "./TextInput";
 export * from "./IconButton";
 export * from "./SwitchButton";
