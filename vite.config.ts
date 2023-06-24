@@ -1,16 +1,15 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import babel from '@rollup/plugin-babel';
 
 export default defineConfig({
-  plugins: [react(), dts()],
+  plugins: [dts()],
   build: {
     outDir: 'dist',
     lib: {
       entry: 'src/index.ts',
       name: 'parvan-designsystem',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format) => format === 'cjs' ? `index.${format}` : `index.${format}.mjs`,
       formats: ['cjs', 'es'],
     },
     rollupOptions: {
@@ -22,12 +21,12 @@ export default defineConfig({
           plugins: [['styled-components', { ssr: true }]],
         }),
       ],
-      // external: ['react', 'react-dom'],
+      external: ['react', 'react-dom'],
       output: {
-        // globals: {
-        //   'react': 'React',
-        //   'react-dom': 'ReactDOM'
-        // },
+        globals: {
+          'react': 'React',
+          'react-dom': 'ReactDOM'
+        },
         exports: 'named',
       }
     },
