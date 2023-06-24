@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import babel from '@rollup/plugin-babel';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [dts()],
+  plugins: [react(), dts()],
   build: {
     outDir: 'dist',
     lib: {
