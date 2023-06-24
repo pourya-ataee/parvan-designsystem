@@ -10,8 +10,8 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'parvan-designsystem',
-      fileName: (format) => `index.${format}`,
-      formats: ['cjs'],
+      fileName: (format) => format === 'cjs' ? `index.${format}` : `index.${format}.js`,
+      formats: ['cjs', 'es'],
     },
     rollupOptions: {
       plugins: [
@@ -22,12 +22,12 @@ export default defineConfig({
           plugins: [['styled-components', { ssr: true }]],
         }),
       ],
-      external: ['react', 'react-dom'],
+      // external: ['react', 'react-dom'],
       output: {
-        globals: {
-          'react': 'React',
-          'react-dom': 'ReactDOM'
-        },
+        // globals: {
+        //   'react': 'React',
+        //   'react-dom': 'ReactDOM'
+        // },
         exports: 'named',
       }
     },

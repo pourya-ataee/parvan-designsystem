@@ -11,6 +11,7 @@
     "parvan_components"
   ],
   "main": "dist/index.cjs",
+  "module": "dist/index.es.js",
   "types": "dist/types.d.ts",
   "typings": "dist/index.d.ts",
   "files": [
