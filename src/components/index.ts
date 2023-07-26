@@ -3,6 +3,7 @@ export * from "./Radio";
 export * from "./Button";
 export * from "./Checkbox";
 export * from "./SideMenu";
+export * from './DateInput';
 export * from "./TextInput";
 export * from "./IconButton";
 export * from "./SwitchButton";
