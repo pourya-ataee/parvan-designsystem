@@ -26,11 +26,13 @@ const InputC = (props: IInputProps) => {
 };
 
 interface IDayValue {
+	initValue?: DayValue;
 	onChange?: (date: DayValue) => void;
 	fetchData?: (date: DayValue) => Promise<void>;
 }
 
 interface IDayRange {
+	initValue?: DayRange;
 	onChange?: (date: DayRange) => void;
 	fetchData?: (date: DayRange) => Promise<void>;
 }
@@ -58,6 +60,7 @@ export interface IDayValueProps extends DatepickerProps, IDayValue {
 
 const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 	const {
+		initValue,
 		containerClassName,
 		labelClassName,
 		inputClassName,
@@ -85,6 +88,12 @@ const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 			type === 'DayRange' ? fetchData({ from: todayDate, to: todayDate }) : fetchData(todayDate);
 		}
 	}, []);
+
+	useEffect(() => {
+		if (!!initValue) {
+			type === 'DayRange' ? setSelectedDayRange(initValue) : setSelectedDay(initValue);
+		}
+	}, [initValue]);
 
 	const formatInputValue = useCallback(() => {
 		if (type === 'DayRange') {
