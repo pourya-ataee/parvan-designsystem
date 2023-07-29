@@ -85,6 +85,9 @@ export const GroupSegmentedButton = styled(GroupSegmentedButtonC)`
     }
     &.group-segmented-button-dir-rtl {
         direction: rtl;
+        .segmented-button {
+          direction: ltr;
+        }
         .segmented-button:last-child {
             border-radius: 100px 0 0 100px;
         }

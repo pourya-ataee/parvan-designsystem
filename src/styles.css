@@ -226,93 +226,93 @@
 }
 
 .display__large {
-    font-size: var(--font-size-display-large);
-    line-height: var(--line-height-display-large);
-    font-weight: 400;
+    font-size: var(--font-size-display-large) !important;
+    line-height: var(--line-height-display-large) !important;
+    font-weight: 400 !important;
 }
 
 /* start::font-styles */
 .display__medium {
-    font-size: var(--font-size-display-medium);
-    line-height: var(--line-height-display-medium);
-    font-weight: 400;
+    font-size: var(--font-size-display-medium) !important;
+    line-height: var(--line-height-display-medium) !important;
+    font-weight: 400 !important;
 }
 
 .display__small {
-    font-size: var(--font-size-display-small);
-    line-height: var(--line-height-display-small);
-    font-weight: 400;
+    font-size: var(--font-size-display-small) !important;
+    line-height: var(--line-height-display-small) !important;
+    font-weight: 400 !important;
 }
 
 .headline__large {
-    font-size: var(--font-size-headline-large);
-    line-height: var(--line-height-headline-large);
-    font-weight: 400;
+    font-size: var(--font-size-headline-large) !important;
+    line-height: var(--line-height-headline-large) !important;
+    font-weight: 400 !important;
 }
 
 .headline__medium {
-    font-size: var(--font-size-headline-medium);
-    line-height: var(--line-height-headline-medium);
-    font-weight: 400;
+    font-size: var(--font-size-headline-medium) !important;
+    line-height: var(--line-height-headline-medium) !important;
+    font-weight: 400 !important;
 }
 
 .headline__small {
-    font-size: var(--font-size-headline-small);
-    line-height: var(--line-height-headline-small);
-    font-weight: 400;
+    font-size: var(--font-size-headline-small) !important;
+    line-height: var(--line-height-headline-small) !important;
+    font-weight: 400 !important;
 }
 
 .title__large {
-    font-size: var(--font-size-title-large);
-    line-height: var(--line-height-title-large);
-    font-weight: 400;
+    font-size: var(--font-size-title-large) !important;
+    line-height: var(--line-height-title-large) !important;
+    font-weight: 400 !important;
 }
 
 .title__medium {
-    font-size: var(--font-size-title-medium);
-    line-height: var(--line-height-title-medium);
-    font-weight: 500;
+    font-size: var(--font-size-title-medium) !important;
+    line-height: var(--line-height-title-medium) !important;
+    font-weight: 500 !important;
 }
 
 .title__small {
-    font-size: var(--font-size-title-small);
-    line-height: var(--line-height-title-small);
-    font-weight: 500;
+    font-size: var(--font-size-title-small) !important;
+    line-height: var(--line-height-title-small) !important;
+    font-weight: 500 !important;
 }
 
 .label__large {
-    font-size: var(--font-size-label-large);
-    line-height: var(--line-height-label-large);
-    font-weight: 500;
+    font-size: var(--font-size-label-large) !important;
+    line-height: var(--line-height-label-large) !important;
+    font-weight: 500 !important;
 }
 
 .label__medium {
-    font-size: var(--font-size-label-medium);
-    line-height: var(--line-height-label-medium);
-    font-weight: 500;
+    font-size: var(--font-size-label-medium) !important;
+    line-height: var(--line-height-label-medium) !important;
+    font-weight: 500 !important;
 }
 
 .label__small {
-    font-size: var(--font-size-label-small);
-    line-height: var(--line-height-label-small);
-    font-weight: 500;
+    font-size: var(--font-size-label-small) !important;
+    line-height: var(--line-height-label-small) !important;
+    font-weight: 500 !important;
 }
 
 .body__large {
-    font-size: var(--font-size-body-large);
-    line-height: var(--line-height-body-large);
-    font-weight: 400;
+    font-size: var(--font-size-body-large) !important;
+    line-height: var(--line-height-body-large) !important;
+    font-weight: 400 !important;
 }
 
 .body__medium {
-    font-size: var(--font-size-body-medium);
-    line-height: var(--line-height-body-medium);
-    font-weight: 400;
+    font-size: var(--font-size-body-medium) !important;
+    line-height: var(--line-height-body-medium) !important;
+    font-weight: 400 !important;
 }
 
 .body__small {
-    font-size: var(--font-size-body-small );
-    line-height: var(--line-height-body-small );
-    font-weight: 400;
+    font-size: var(--font-size-body-small ) !important;
+    line-height: var(--line-height-body-small ) !important;
+    font-weight: 400 !important;
 }
 /* end::font-styles */

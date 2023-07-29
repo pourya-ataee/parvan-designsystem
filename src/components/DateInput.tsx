@@ -38,6 +38,7 @@ interface IDayRange {
 interface DatepickerProps {
 	today?: boolean;
 	inputClassName?: string;
+	inputLabel?: string;
 	inputPlaceholder?: string;
 	colorPrimary?: string;
 	colorPrimaryLight?: string;
@@ -45,17 +46,18 @@ interface DatepickerProps {
 	renderInput?: (props: RenderInputProps) => null;
 }
 
-interface IDayRangeProps extends DatepickerProps, IDayRange {
+export interface IDayRangeProps extends DatepickerProps, IDayRange {
 	type: 'DayRange';
 }
 
-interface IDayValueProps extends DatepickerProps, IDayValue {
+export interface IDayValueProps extends DatepickerProps, IDayValue {
 	type: 'DayValue';
 }
 
 const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 	const {
 		inputClassName,
+		inputLabel,
 		inputPlaceholder,
 		colorPrimary,
 		colorPrimaryLight,
@@ -91,7 +93,13 @@ const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 	}, [selectedDayRange, selectedDay]);
 
 	const handleClick = () => {
-		type === 'DayRange' ? setSelectedDayRange({ from: null, to: null }) : setSelectedDay(null);
+		if (type === 'DayRange') {
+			setSelectedDayRange({ from: null, to: null });
+			!!onChange && onChange({ from: null, to: null });
+		} else {
+			setSelectedDay(null);
+			!!onChange && onChange(null);
+		}
 	};
 
 	const handleChange = (value: DayRange | DayValue) => {
@@ -116,7 +124,7 @@ const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 					htmlFor="datepicker-input"
 					className="datepicker-label label user-select-none"
 				>
-					تاریخ
+					{!!inputLabel ? inputLabel : 'تاریخ'}
 				</label>
 				<InputC
 					value={null}
@@ -131,8 +139,8 @@ const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 							<input
 								readOnly
 								id="datepicker-input"
-								className="datepicker-input"
-								placeholder=""
+								className={`datepicker-input ${inputClassName}`}
+								placeholder={inputPlaceholder}
 								value={!!formatInputText ? formatInputText() : formatInputValue()}
 								ref={props.ref as RefObject<HTMLInputElement>}
 								onFocus={() => {
@@ -205,7 +213,7 @@ export const DateInput = styled(DateInputC)`
     position: relative;
     z-index: 999;
     &::after {
-      width: 29px;
+      width: 33px;
       opacity: 0;
       content: '';
       position: absolute;
