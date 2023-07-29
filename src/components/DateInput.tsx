@@ -36,7 +36,8 @@ interface IDayRange {
 }
 
 interface DatepickerProps {
-  labelClassName?: string;
+	containerClassName?: string;
+	labelClassName?: string;
 	today?: boolean;
 	inputClassName?: string;
 	inputLabel?: string;
@@ -57,7 +58,8 @@ export interface IDayValueProps extends DatepickerProps, IDayValue {
 
 const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 	const {
-    labelClassName,
+		containerClassName,
+		labelClassName,
 		inputClassName,
 		inputLabel,
 		inputPlaceholder,
@@ -120,7 +122,9 @@ const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 			{...otherProps}
 		>
 			<div
-				className={`datepicker input-container ${(!!selectedDayRange.from && !!selectedDayRange.to) || !!selectedDay || focus ? 'has-value' : ''}`}
+				className={`datepicker input-container ${containerClassName} ${
+					(!!selectedDayRange.from && !!selectedDayRange.to) || !!selectedDay || focus ? 'has-value' : ''
+				}`}
 			>
 				<label
 					htmlFor="datepicker-input"
