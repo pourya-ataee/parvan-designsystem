@@ -40,7 +40,7 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
 	/**
 	 * Input onChange function
 	 */
-	onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+	onChange?: (event?: ChangeEvent<HTMLInputElement>) => void;
 	/**
 	 * Input onFocus function
 	 */
@@ -116,6 +116,7 @@ const TextInputC = (props: TextInputProps) => {
 
 	const handleRemoveButton = () => {
 		setValue !== undefined && value !== undefined ? setValue('') : setValueC('');
+		onChange !== undefined && onChange();
 		setIsVisible(false);
 	};
 
