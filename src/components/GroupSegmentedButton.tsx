@@ -50,6 +50,7 @@ const GroupSegmentedButtonC = (props: GroupSegmentedButtonProps) => {
     const handleClick = (id: string) => {
         if (!multiple) {
             setSelected(id);
+            console.log('fff',selected)
         } else {
             if (multipleSelect.includes(id)) {
                 setMultipleSelect(multipleSelect.filter((e) => {
