@@ -49,6 +49,7 @@ export interface SegmentedButtonProps extends IProps, ButtonHTMLAttributes<HTMLB
 
 const SegmentedButtonC = (props: SegmentedButtonProps) => {
     const { selected, setSelected, selectedDefaultValue, onClick, className, disabled, text, icon, background, ...buttonProps } = props;
+    console.log(selected)
     const [ selectedC, setSelectedC ] = useState<boolean>(selectedDefaultValue as boolean)
 
     useEffect(() => {
@@ -67,6 +68,7 @@ const SegmentedButtonC = (props: SegmentedButtonProps) => {
         }
         !!onClick && onClick(e)
     }
+    
 
     return (
         <button type="button" className={`segmented-button segmented-button-${disabled ? 'disabled' : selected !== undefined ? selected ? 'active' : 'inactive' : selectedC ? 'active' : 'inactive' } ${clsx({ 'text-with-icon': !!text && !!icon })} ${className}`} disabled={disabled} onClick={handleClick} {...buttonProps}>
