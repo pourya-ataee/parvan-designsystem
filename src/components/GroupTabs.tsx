@@ -52,7 +52,6 @@ const GroupTabsC = (props: GroupTabsProps) => {
 	const handleClick = (id: string) => {
 		if (!multiple) {
 			setSelected(id);
-			console.log("fff", selected);
 		} else {
 			if (multipleSelect.includes(id)) {
 				setMultipleSelect(

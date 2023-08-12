@@ -59,7 +59,7 @@ const TabsC = (props: TabsProps) => {
 	const { selected, setSelected, selectedDefaultValue, onClick,alignment,bigLine, className, disabled, text, icon, background, ...buttonProps } = props;
 
 	const [selectedC, setSelectedC] = useState<boolean>(selectedDefaultValue as boolean);
-	console.log(selectedC);
+  
 	useEffect(() => {
 		setSelected !== undefined && selectedDefaultValue !== undefined && setSelected(selectedDefaultValue);
 	}, []);
