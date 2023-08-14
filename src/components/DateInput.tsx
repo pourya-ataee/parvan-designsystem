@@ -106,11 +106,11 @@ const DateInputC = (props: IDayRangeProps | IDayValueProps) => {
 	}, [selectedDayRange, selectedDay]);
 
 	const handleClick = () => {
+		setSelectedDay(null);
+		setSelectedDayRange({ from: null, to: null });
 		if (type === 'DayRange') {
-			setSelectedDayRange({ from: null, to: null });
 			!!onChange && onChange({ from: null, to: null });
 		} else {
-			setSelectedDay(null);
 			!!onChange && onChange(null);
 		}
 	};
